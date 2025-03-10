@@ -1,44 +1,29 @@
+# Classroom Marks
+
 #include <iostream>
-#include <string>
 using namespace std;
-namespace tsd {
-    class MarksSheet {
-    private:
-        string studentName;
-        int rollNumber;
-        int marks[5];
 
-    public:
-        void inputDetails() {
-            cin.ignore();
-            cout << "Enter student name: ";
-            getline(std::cin, studentName);
+class Classroom {
+private:
+    string studentName;
+    int marks;
 
-            cout << "Enter roll number: ";
-            cin >> rollNumber;
+public:
+    void setDetails(string name, int score) {
+        studentName = name;
+        marks = score;
+    }
 
-            cout << "Enter marks for 5 subjects: ";
-            for (int i = 0; i < 5; ++i) {
-                cin >> marks[i];
-            }
-        }
-
-        void displayDetails() const {
-            cout << "\nMarks Sheet\n";
-            cout << "Student Name: " << studentName << "\n";
-            cout << "Roll Number: " << rollNumber << "\n";
-            cout << "Marks:\n";
-            for (int i = 0; i < 5; ++i) {
-                cout << "Subject " << (i + 1) << ": " << marks[i] << "\n";
-            }
-        }
-    };
-}
+    void displayDetails() {
+        cout << "Student Name: " << studentName << endl;
+        cout << "Marks: " << marks << endl;
+    }
+};
 
 int main() {
-    tsd::MarksSheet sheet;
-    sheet.inputDetails();
-    sheet.displayDetails();
+    Classroom student1;
+    student1.setDetails("John Doe", 85);
+    student1.displayDetails();
 
     return 0;
 }
